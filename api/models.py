@@ -297,7 +297,7 @@ class CourseOutline(models.Model):
 
     class Meta:
         unique_together = ('course_detail', 'title')
-        verbose_name_plural = "12. 课程大纲"
+        verbose_name_plural = "13. 课程大纲"
 
 
 class CourseChapter(models.Model):
@@ -310,7 +310,7 @@ class CourseChapter(models.Model):
 
     class Meta:
         unique_together = ("course", 'chapter')
-        verbose_name_plural = "13. 课程章节"
+        verbose_name_plural = "14. 课程章节"
 
     def __str__(self):
         return "%s:(第%s章)%s" % (self.course, self.chapter, self.name)
@@ -330,7 +330,7 @@ class CourseSection(models.Model):
 
     class Meta:
         unique_together = ('chapter', 'section_link')
-        verbose_name_plural = "14. 课时"
+        verbose_name_plural = "15. 课时"
 
     def __str__(self):
         return "%s-%s" % (self.chapter, self.name)
@@ -351,7 +351,7 @@ class Homework(models.Model):
 
     class Meta:
         unique_together = ("chapter", "title")
-        verbose_name_plural = "15. 章节作业"
+        verbose_name_plural = "16. 章节作业"
 
     def __str__(self):
         return "%s - %s" % (self.chapter, self.title)
@@ -375,7 +375,7 @@ class CourseReview(models.Model):
         return "%s-%s" % (self.enrolled_course.course, self.review)
 
     class Meta:
-        verbose_name_plural = "16. 课程评价（购买课程后才能评价）"
+        verbose_name_plural = "17. 课程评价（购买课程后才能评价）"
 
 
 class DegreeCourseReview(models.Model):
@@ -401,7 +401,7 @@ class DegreeCourseReview(models.Model):
         return "%s-%s" % (self.enrolled_course, self.review)
 
     class Meta:
-        verbose_name_plural = "17. 学位课评价（购买课程后才能评价）"
+        verbose_name_plural = "18. 学位课评价（购买课程后才能评价）"
 
 
 class PricePolicy(models.Model):
@@ -423,7 +423,7 @@ class PricePolicy(models.Model):
 
     class Meta:
         unique_together = ("content_type", 'object_id', "valid_period")
-        verbose_name_plural = "18. 价格策略"
+        verbose_name_plural = "19. 价格策略"
 
     def __str__(self):
         return "%s(%s)%s" % (self.content_object, self.get_valid_period_display(), self.price)
@@ -456,7 +456,7 @@ class Coupon(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = "31. 优惠券生成记录"
+        verbose_name_plural = "20. 优惠券生成记录"
 
     def __str__(self):
         return "%s(%s)" % (self.get_coupon_type_display(), self.name)
